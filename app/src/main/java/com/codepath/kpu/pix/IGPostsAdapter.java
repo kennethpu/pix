@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.codepath.kpu.pix.models.IGPost;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -15,14 +16,14 @@ import java.util.List;
 /**
  * Created by kpu on 2/6/16.
  */
-public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
+public class IGPostsAdapter extends ArrayAdapter<IGPost> {
 
-    public InstagramPhotosAdapter(Context context, List<InstagramPhoto> objects) {
+    public IGPostsAdapter(Context context, List<IGPost> objects) {
         super(context, android.R.layout.simple_list_item_1, objects);
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        InstagramPhoto photo = getItem(position);
+        IGPost photo = getItem(position);
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_photo, parent, false);
