@@ -35,7 +35,7 @@ public class IGPostsAdapter extends ArrayAdapter<IGPost> {
         TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
 
         ivPhoto.setImageResource(0);
-        Picasso.with(getContext()).load(photo.imageUrl).into(ivPhoto);
+        Picasso.with(getContext()).load(photo.imageUrl).placeholder(R.drawable.icon_placeholder).into(ivPhoto);
         tvLikesCount.setText(String.format("%,d likes", photo.likesCount));
 
         if (photo.caption != null) {
