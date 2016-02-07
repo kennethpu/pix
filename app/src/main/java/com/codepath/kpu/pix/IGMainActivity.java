@@ -11,9 +11,7 @@ import java.util.ArrayList;
 
 public class IGMainActivity extends AppCompatActivity {
 
-    private ArrayList<IGPost> posts;
-    private IGPostsAdapter aPosts;
-
+    private IGPostsAdapter postsAdapter;
     private IGPostProvider postProvider;
 
     @Override
@@ -21,16 +19,15 @@ public class IGMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        posts = new ArrayList<>();
-
         // Create adapter and link it to the data source
-        aPosts = new IGPostsAdapter(this, posts);
+        postsAdapter = new IGPostsAdapter(this, new ArrayList<IGPost>());
         ListView lvPhotos = (ListView)findViewById(R.id.lvPhotos);
-        lvPhotos.setAdapter(aPosts);
+        lvPhotos.setAdapter(postsAdapter);
 
+        // Initialize our network adapter to make API requests to Instagram Popular Posts endpoint
         postProvider = new IGPostProvider();
 
-        // Send out API request to Instagram Popular Photos endpoint
+        // Refresh UI
         refreshPopularPosts();
     }
 
@@ -38,9 +35,8 @@ public class IGMainActivity extends AppCompatActivity {
         postProvider.fetchPopularPosts(new IGPostProvider.IGOnPostsFetched() {
             @Override
             public void onSuccess(ArrayList<IGPost> fetchedPosts) {
-                posts.clear();
-                posts.addAll(fetchedPosts);
-                aPosts.notifyDataSetChanged();
+                postsAdapter.clear();
+                postsAdapter.addAll(fetchedPosts);
             }
 
             @Override
