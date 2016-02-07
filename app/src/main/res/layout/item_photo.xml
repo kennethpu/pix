@@ -23,7 +23,7 @@
             android:layout_height="45dp"
             android:scaleType="fitCenter"
             android:src="@drawable/icon_profile"
-            app:riv_border_color="#a5a9ac"
+            app:riv_border_color="@color/hitGray"
             app:riv_border_width="1dp"
             app:riv_corner_radius="45dp"
             app:riv_mutate_background="true"
@@ -37,7 +37,7 @@
             android:layout_gravity="center"
             android:paddingLeft="12dp"
             android:text="username"
-            android:textColor="#2d5b80"
+            android:textColor="@color/bahamaBlue"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
             android:layout_gravity="center"
             android:gravity="right"
             android:text="5h"
-            android:textColor="#a5a9ac"
+            android:textColor="@color/hitGray"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="999 likes"
-            android:textColor="#2d5b80"
+            android:textColor="@color/bahamaBlue"
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
