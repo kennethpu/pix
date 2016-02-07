@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingBottom="8dp"
+    android:background="#ffffff">
 
     <ImageView
         android:id="@+id/ivPhoto"
@@ -10,9 +12,41 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:adjustViewBounds="true"
+        android:adjustViewBounds="false"
         android:minHeight="50dp"
         android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:id="@+id/llLikes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ivPhoto"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingRight="8dp"
+            android:src="@drawable/likes_icon" />
+
+        <TextView
+            android:id="@+id/tvLikesCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="999 likes"
+            android:textColor="#2d5b80"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvCaption"
@@ -20,9 +54,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/ivPhoto"
+        android:layout_below="@+id/llLikes"
         android:ellipsize="end"
         android:maxLines="3"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:text="New Text"
         android:textSize="20sp" />
 </RelativeLayout>

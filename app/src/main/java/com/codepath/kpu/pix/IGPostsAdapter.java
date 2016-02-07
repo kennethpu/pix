@@ -1,6 +1,7 @@
 package com.codepath.kpu.pix;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,12 +30,18 @@ public class IGPostsAdapter extends ArrayAdapter<IGPost> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_photo, parent, false);
         }
 
-        TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
         ImageView ivPhoto = (ImageView) convertView.findViewById(R.id.ivPhoto);
+        TextView tvLikesCount = (TextView) convertView.findViewById(R.id.tvLikesCount);
+        TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
 
-        tvCaption.setText(photo.caption);
         ivPhoto.setImageResource(0);
         Picasso.with(getContext()).load(photo.imageUrl).into(ivPhoto);
+        tvLikesCount.setText(String.format("%,d likes", photo.likesCount));
+
+        if (photo.caption != null) {
+            String captionText = String.format("<b><font color=#2d5b80>%s</font></b> %s", photo.author.username, photo.caption);
+            tvCaption.setText(Html.fromHtml(captionText));
+        }
 
         return convertView;
     }
