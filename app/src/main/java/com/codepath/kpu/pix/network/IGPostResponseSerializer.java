@@ -37,7 +37,7 @@ public class IGPostResponseSerializer {
     private static IGPost getPostFromJSON(JSONObject postJSON) {
         IGPost post = new IGPost();
         if (postJSON != null) {
-            post.createdTime = postJSON.optDouble(IGPostConstants.IG_POST_CREATED_TIME);
+            post.createdTime = postJSON.optLong(IGPostConstants.IG_POST_CREATED_TIME);
 
             JSONObject userJSON = postJSON.optJSONObject(IGPostConstants.IG_POST_AUTHOR);
             post.author = getUserFromJSON(userJSON);
@@ -87,7 +87,7 @@ public class IGPostResponseSerializer {
     private static IGPostComment getPostCommentFromJSON(JSONObject postCommentJSON) {
         IGPostComment comment = new IGPostComment();
         if (postCommentJSON != null) {
-            comment.createdTime = postCommentJSON.optDouble(IGPostConstants.IG_POST_COMMENT_CREATED_TIME);
+            comment.createdTime = postCommentJSON.optLong(IGPostConstants.IG_POST_COMMENT_CREATED_TIME);
             comment.text = postCommentJSON.optString(IGPostConstants.IG_POST_COMMENT_TEXT);
             JSONObject userJSON = postCommentJSON.optJSONObject(IGPostConstants.IG_POST_COMMENT_AUTHOR);
             comment.author = getUserFromJSON(userJSON);

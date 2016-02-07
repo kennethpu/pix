@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by kpu on 2/6/16.
  */
 public class IGPost {
-    public double createdTime;
+    public long createdTime;
     public IGUser author;
     public String caption;
     public String imageUrl;
