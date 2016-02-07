@@ -8,6 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by kpu on 2/6/16.
@@ -17,6 +18,10 @@ public class IGPostResponseSerializer {
     public static ArrayList<IGPost> handleFetchPopularPostsResponse(JSONObject response) {
         JSONArray postsJSON = response.optJSONArray(IGPostConstants.IG_DATA);
         ArrayList<IGPost> posts = getPostsFromJSONArray(postsJSON);
+
+        // Sort posts in ascending date order
+        Collections.sort(posts, Collections.reverseOrder());
+
         return posts;
     }
 
