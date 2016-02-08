@@ -17,7 +17,7 @@ Time spent: 12 hours in total
 
 ### Walkthrough for all user stories:
 
-![Video Walkthrough](img/simplist.gif)
+![Video Walkthrough](img/pix.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
